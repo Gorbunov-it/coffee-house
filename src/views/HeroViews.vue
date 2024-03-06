@@ -41,9 +41,9 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <Product-Card />
-              <Product-Card />
-              <Product-Card />
+              <product-card classItem="best__item" :name="bestsellers[0].name" :price="bestsellers[0].price" :image="bestsellers[0].image" />
+              <product-card classItem="best__item" :name="bestsellers[1].name" :price="bestsellers[1].price" :image="bestsellers[1].image" />
+              <product-card classItem="best__item" :name="bestsellers[2].name" :price="bestsellers[2].price" :image="bestsellers[2].image" />
             </div>
           </div>
         </div>
@@ -60,23 +60,23 @@ export default {
   components: { NavBarComponent, ProductCard },
   data() {
     return {
-      cards: [
+      bestsellers: [
         {
           id: 0,
-          icon: "coffee-1.jpg",
-          title: "Solimo Coffee Beans 2kg",
+          image: "coffee-1.jpg",
+          name: "Solimo Coffee Beans 2kg",
           price: 10.73,
         },
         {
           id: 1,
-          icon: "coffee-2.jpg",
-          title: "Presto Coffee Beans 1kg",
+          image: "coffee-2.jpg",
+          name: "Presto Coffee Beans 1kg",
           price: 15.99,
         },
         {
           id: 2,
-          icon: "coffee-3.jpg",
-          title: "AROMISTICO Coffee 1kg",
+          image: "coffee-3.jpg",
+          name: "AROMISTICO Coffee 1kg",
           price: 6.99,
         },
       ],

@@ -41,7 +41,7 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <product-card v-for="card in bestsellers" :key="card.id" classItem="best__item" :name="card.name" :price="card.price" :image="card.image" />
+              <product-card v-for="card in bestsellers" :key="card.id" classItem="best__item" :card="card" />
             </div>
           </div>
         </div>
@@ -57,29 +57,10 @@ import { scrollIntoView } from "seamless-scroll-polyfill";
 
 export default {
   components: { NavBarComponent, ProductCard },
-  data() {
-    return {
-      bestsellers: [
-        {
-          id: 0,
-          image: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
-          price: 10.73,
-        },
-        {
-          id: 1,
-          image: "coffee-2.jpg",
-          name: "Presto Coffee Beans 1kg",
-          price: 15.99,
-        },
-        {
-          id: 2,
-          image: "coffee-3.jpg",
-          name: "AROMISTICO Coffee 1kg",
-          price: 6.99,
-        },
-      ],
-    };
+  computed: {
+    bestsellers() {
+      return this.$store.getters["getBestsellers"];
+    },
   },
   methods: {
     smoothScroll() {

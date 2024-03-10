@@ -52,7 +52,7 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
-              <product-card v-for="card in coffee" :key="card.id" classItem="shop__item" :card="card" />
+              <product-card v-for="card in coffee" :key="card.id" classItem="shop__item" :card="card" @onNavigate="navigate" />
               <!-- /our-coffee/item -->
             </div>
           </div>
@@ -65,13 +65,20 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
+import { navigate } from "@/mixins/navigate";
 
 export default {
   components: { NavBarComponent, ProductCard },
+  data() {
+    return {
+      name: "coffee",
+    };
+  },
   computed: {
     coffee() {
       return this.$store.getters["getCoffee"];
     },
   },
+  mixins: [navigate],
 };
 </script>
